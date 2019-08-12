@@ -4,9 +4,9 @@ namespace PacerIT\LaravelPolishValidationRules\Providers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use PacerIT\LaravelPolishValidationRules\Rules\NIPRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
 use PacerIT\LaravelPolishValidationRules\Rules\REGONRule;
-use Rules\NIPRule;
 
 /**
  * Class LaravelPolishValidationRulesServiceProvider
