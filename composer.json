@@ -31,6 +31,14 @@
             "PacerIT\\LaravelPolishValidationRules\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "PacerIT\\LaravelPolishValidationRules\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
     "extra": {
         "laravel": {
             "providers": [
