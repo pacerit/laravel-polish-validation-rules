@@ -1,4 +1,8 @@
 # Laravel Polish Validation Rules
+![GitHub tag (latest by date)](https://img.shields.io/github/tag-date/pacerit/laravel-polish-validation-rules?label=Version)
+![GitHub](https://img.shields.io/github/license/pacerit/laravel-polish-validation-rules?label=License)
+![Packagist](https://img.shields.io/packagist/dt/pacerit/laravel-polish-validation-rules?label=Downloads)
+![PHP from Packagist](https://img.shields.io/packagist/php-v/pacerit/laravel-polish-validation-rules?label=PHP)
 
 Simple Polish Validation rules for Laravel and Lumen framework
 
@@ -6,6 +10,11 @@ Simple Polish Validation rules for Laravel and Lumen framework
 You can install this package by composer:
 
     composer require pacerit/laravel-polish-validation-rules
+    
+For customize validaiton messages run:
+For more configuration, you can publish configuration file:
+
+    php artisan vendor:publish --provider "PacerIT\LaravelPolishValidationRules\Providers\LaravelPolishValidationRulesServiceProvider"
     
 ### Version compatibility
 #### Laravel

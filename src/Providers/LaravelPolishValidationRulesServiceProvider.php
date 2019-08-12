@@ -30,7 +30,7 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom($path, 'polish-validation');
 
         $this->publishes([
-            __DIR__.'/path/to/translations' => $this->app->configPath('lang/vendor/courier'),
+            $path => $this->app->resourcePath('lang/vendor/polish-validation'),
         ]);
 
         $this->registerRules();
@@ -44,9 +44,23 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
      */
     private function registerRules()
     {
-        Validator::extend('PESEL', PESELRule::class . '@passes');
-        Validator::extend('REGON', REGONRule::class . '@passes');
-        Validator::extend('NIP', NIPRule::class . '@passes');
+        Validator::extend(
+            'PESEL',
+            PESELRule::class . '@passes',
+            trans('polish-validation::validation.PESEL')
+        );
+
+        Validator::extend(
+            'REGON',
+            REGONRule::class . '@passes',
+            trans('polish-validation::validation.REGON')
+        );
+
+        Validator::extend(
+            'NIP',
+            NIPRule::class . '@passes',
+            trans('polish-validation::validation.NIP')
+        );
     }
 
 }
