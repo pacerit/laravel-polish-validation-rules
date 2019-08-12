@@ -31,19 +31,24 @@ Framework | Package
 1. 'PESEL' - validate [PESEL](https://pl.wikipedia.org/wiki/PESEL) number
 2. 'REGON' - validate [REGON](https://pl.wikipedia.org/wiki/REGON) number
 3. 'NIP' - validate [NIP](https://pl.wikipedia.org/wiki/NIP) number
+4. 'id_card_number' - validate Polish ID Card number
 
 ## Code Authors
 
-Algorithms for rules:
-* PESEL
-* REGON
-* NIP
+The algorithms used in the functions are based on existing solutions. Below are links to the sources:
 
-are based on code form [http://phpedia.pl/wiki/](http://phpedia.pl/wiki/).
+* PESEL - [http://phpedia.pl/wiki/PESEL](http://phpedia.pl/wiki/PESEL)
+* REGON - [http://phpedia.pl/wiki/REGON](http://phpedia.pl/wiki/REGON)
+* NIP - [http://phpedia.pl/wiki/NIP](http://phpedia.pl/wiki/NIP)
+* id_card_number - [http://www.algorytm.org](http://www.algorytm.org/numery-identyfikacyjne/numer-dowodu-osobistego/do-php.html)
 
 ## Changelog
 
 Go to the [Changelog](CHANGELOG.md) for a full change history of the package.
+
+## Testing
+
+    composer test
 
 ## Security Vulnerabilities
 

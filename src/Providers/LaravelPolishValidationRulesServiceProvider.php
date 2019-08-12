@@ -4,6 +4,7 @@ namespace PacerIT\LaravelPolishValidationRules\Providers;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use PacerIT\LaravelPolishValidationRules\Rules\IDCardNumberRule;
 use PacerIT\LaravelPolishValidationRules\Rules\NIPRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
 use PacerIT\LaravelPolishValidationRules\Rules\REGONRule;
@@ -60,6 +61,12 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
             'NIP',
             NIPRule::class . '@passes',
             trans('polish-validation::validation.NIP')
+        );
+
+        Validator::extend(
+            'id_card_number',
+            IDCardNumberRule::class . '@passes',
+            trans('polish-validation::validation.id_card_number')
         );
     }
 

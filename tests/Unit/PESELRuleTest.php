@@ -45,7 +45,7 @@ class PESELRuleTest extends AbstractRuleTest
      * @author Wiktor Pacer <kontakt@pacerit.pl>
      * @since 2019-08-12
      */
-    public function testNotValidPesel()
+    public function testNotValidPESEL()
     {
         $notValidPesel = '39102999742';
 
