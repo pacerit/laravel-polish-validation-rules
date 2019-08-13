@@ -10,15 +10,14 @@ use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
 use PacerIT\LaravelPolishValidationRules\Rules\REGONRule;
 
 /**
- * Class LaravelPolishValidationRulesServiceProvider
+ * Class LaravelPolishValidationRulesServiceProvider.
  *
- * @package PacerIT\LaravelPolishValidationRules\Providers
  * @author Wiktor Pacer <kontakt@pacerit.pl>
+ *
  * @since 2019-08-12
  */
 class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap any application services.
      *
@@ -26,7 +25,7 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $path = __DIR__ . '/../../resources/lang';
+        $path = __DIR__.'/../../resources/lang';
 
         $this->loadTranslationsFrom($path, 'polish-validation');
 
@@ -38,36 +37,36 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register validation rules
+     * Register validation rules.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     private function registerRules()
     {
         Validator::extend(
             'PESEL',
-            PESELRule::class . '@passes',
+            PESELRule::class.'@passes',
             trans('polish-validation::validation.PESEL')
         );
 
         Validator::extend(
             'REGON',
-            REGONRule::class . '@passes',
+            REGONRule::class.'@passes',
             trans('polish-validation::validation.REGON')
         );
 
         Validator::extend(
             'NIP',
-            NIPRule::class . '@passes',
+            NIPRule::class.'@passes',
             trans('polish-validation::validation.NIP')
         );
 
         Validator::extend(
             'id_card_number',
-            IDCardNumberRule::class . '@passes',
+            IDCardNumberRule::class.'@passes',
             trans('polish-validation::validation.id_card_number')
         );
     }
-
 }

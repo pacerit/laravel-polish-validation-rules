@@ -5,31 +5,32 @@ namespace Tests\Unit;
 use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
 
 /**
- * Class PESELRuleTest
+ * Class PESELRuleTest.
  *
- * @package Tests\Unit
  * @author Wiktor Pacer <kontakt@pacerit.pl>
+ *
  * @since 2019-08-12
  */
 class PESELRuleTest extends AbstractRuleTest
 {
-
     /**
-     * Set up test
+     * Set up test.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function setUp()
     {
         parent::setUp();
-        $this->rule = New PESELRule();
+        $this->rule = new PESELRule();
     }
 
     /**
-     * Valid PESEL test
+     * Valid PESEL test.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function testValidPESEL()
@@ -40,9 +41,10 @@ class PESELRuleTest extends AbstractRuleTest
     }
 
     /**
-     * Not valid PESEL test
+     * Not valid PESEL test.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function testNotValidPESEL()
@@ -51,5 +53,4 @@ class PESELRuleTest extends AbstractRuleTest
 
         $this->assertEquals(false, $this->rule->passes('pesel', $notValidPesel));
     }
-
 }

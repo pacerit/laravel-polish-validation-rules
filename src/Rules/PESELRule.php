@@ -3,21 +3,21 @@
 namespace PacerIT\LaravelPolishValidationRules\Rules;
 
 /**
- * Class PESELRule
+ * Class PESELRule.
  *
- * @package PacerIT\LaravelPolishValidationRules\Rules
  * @author Wiktor Pacer <kontakt@pacerit.pl>
+ *
  * @since 2019-08-12
  */
 class PESELRule
 {
-
     /**
      * Determine if the validation rule passes.
      *
      * @param string $attribute
-     * @param mixed $value
-     * @return boolean
+     * @param mixed  $value
+     *
+     * @return bool
      */
     public function passes($attribute, $value)
     {
@@ -25,16 +25,18 @@ class PESELRule
     }
 
     /**
-     * Check if given PESEL number is valid
+     * Check if given PESEL number is valid.
      *
      * @param string $string
-     * @return boolean
+     *
+     * @return bool
+     *
      * @see http://phpedia.pl/wiki/PESEL Souce of this algorithm
      * @since 2019-08-12
      */
     private function checkPESEL(string $string): bool
     {
-        if (! preg_match('/^[0-9]{11}$/', $string)) {
+        if (!preg_match('/^[0-9]{11}$/', $string)) {
             return false;
         }
 
@@ -53,5 +55,4 @@ class PESELRule
 
         return false;
     }
-
 }
