@@ -5,31 +5,32 @@ namespace Tests\Unit;
 use PacerIT\LaravelPolishValidationRules\Rules\IDCardNumberRule;
 
 /**
- * Class IDCardNUmberTest
+ * Class IDCardNUmberTest.
  *
- * @package Tests\Unit
  * @author Wiktor Pacer <kontakt@pacerit.pl>
+ *
  * @since 2019-08-12
  */
 class IDCardNUmberTest extends AbstractRuleTest
 {
-
     /**
-     * Set up test
+     * Set up test.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function setUp()
     {
         parent::setUp();
-        $this->rule = New IDCardNumberRule();
+        $this->rule = new IDCardNumberRule();
     }
 
     /**
-     * Test valid NIP number
+     * Test valid NIP number.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function testValidIDCardNumber()
@@ -38,9 +39,10 @@ class IDCardNUmberTest extends AbstractRuleTest
     }
 
     /**
-     * Test valid NIP number (with space)
+     * Test valid NIP number (with space).
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function testValidIDCardNumberWithSpace()
@@ -49,9 +51,10 @@ class IDCardNUmberTest extends AbstractRuleTest
     }
 
     /**
-     * Test valid NIP number (with dash)
+     * Test valid NIP number (with dash).
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function testValidIDCardNumberWithDash()
@@ -60,14 +63,14 @@ class IDCardNUmberTest extends AbstractRuleTest
     }
 
     /**
-     * Test not valid NIP number
+     * Test not valid NIP number.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
      * @since 2019-08-12
      */
     public function testNotValidIDCardNumber()
     {
         $this->assertEquals(false, $this->rule->passes('id_card_number', 'ATL0000'));
     }
-
 }

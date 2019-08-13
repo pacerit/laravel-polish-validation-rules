@@ -3,21 +3,21 @@
 namespace PacerIT\LaravelPolishValidationRules\Rules;
 
 /**
- * Class NIPRule
+ * Class NIPRule.
  *
- * @package Rules
  * @author Wiktor Pacer <kontakt@pacerit.pl>
+ *
  * @since 2019-08-12
  */
 class NIPRule
 {
-
     /**
      * Determine if the validation rule passes.
      *
      * @param string $attribute
-     * @param mixed $value
-     * @return boolean
+     * @param mixed  $value
+     *
+     * @return bool
      */
     public function passes($attribute, $value)
     {
@@ -25,22 +25,24 @@ class NIPRule
     }
 
     /**
-     * Check if given string is valid NIP number
+     * Check if given string is valid NIP number.
      *
      * @param string $string
-     * @return boolean
+     *
+     * @return bool
+     *
      * @see http://phpedia.pl/wiki/NIP Souce of this algorithm
      * @since 2019-08-12
      */
     private function checkNIP(string $string): bool
     {
-        $str = preg_replace('/[^0-9]+/', '', $string);
+        $string = preg_replace('/[^0-9]+/', '', $string);
 
         if (strlen($string) !== 10) {
             return false;
         }
 
-        $arrSteps = array(6, 5, 7, 2, 3, 4, 5, 6, 7);
+        $arrSteps = [6, 5, 7, 2, 3, 4, 5, 6, 7];
         $intSum = 0;
 
         for ($i = 0; $i < 9; $i++) {
@@ -56,5 +58,4 @@ class NIPRule
 
         return false;
     }
-
 }
