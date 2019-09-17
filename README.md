@@ -14,7 +14,6 @@ You can install this package by composer:
     composer require pacerit/laravel-polish-validation-rules
     
 For customize validaiton messages run:
-For more configuration, you can publish configuration file:
 
     php artisan vendor:publish --provider "PacerIT\LaravelPolishValidationRules\Providers\LaravelPolishValidationRulesServiceProvider"
     
@@ -23,10 +22,12 @@ For more configuration, you can publish configuration file:
 Framework | Package
 :---------|:--------
 5.8.x     | ^1.x.x
+6.0.x     | ^2.x.x
 #### Lumen
 Framework | Package
 :---------|:--------
 5.8.x     | ^1.x.x
+6.0.x     | ^2.x.x
 
 ## Rules
 
