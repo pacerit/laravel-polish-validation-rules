@@ -27,15 +27,19 @@ class PESELRule
     /**
      * Check if given PESEL number is valid.
      *
-     * @param string $string
+     * @param null|string $string
      *
      * @return bool
      *
      * @see http://phpedia.pl/wiki/PESEL Souce of this algorithm
      * @since 2019-08-12
      */
-    private function checkPESEL(string $string): bool
+    private function checkPESEL(?string $string): bool
     {
+        if ($string === null) {
+            return false;
+        }
+
         if (!preg_match('/^[0-9]{11}$/', $string)) {
             return false;
         }

@@ -27,15 +27,19 @@ class IDCardNumberRule
     /**
      * Check if given string is valid Polish id card number.
      *
-     * @param string $string
+     * @param null|string $string
      *
      * @return bool
      *
      * @see http://www.algorytm.org/numery-identyfikacyjne/numer-dowodu-osobistego/do-php.html Souce of this algorithm
      * @since 2019-08-12
      */
-    private function checkIDCardNumber(string $string): bool
+    private function checkIDCardNumber(?string $string): bool
     {
+        if ($string === null) {
+            return false;
+        }
+
         $string = str_replace('-', '', $string);
         $string = str_replace(' ', '', $string);
 
