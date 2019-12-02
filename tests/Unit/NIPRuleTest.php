@@ -35,7 +35,7 @@ class NIPRuleTest extends AbstractRuleTest
      */
     public function testValidNIP()
     {
-        $this->assertEquals(true, $this->rule->passes('nip', '7973640218'));
+        $this->assertTrue($this->rule->passes('nip', '7973640218'));
     }
 
     /**
@@ -47,6 +47,18 @@ class NIPRuleTest extends AbstractRuleTest
      */
     public function testNotValidNIP()
     {
-        $this->assertEquals(false, $this->rule->passes('nip', '7973640217'));
+        $this->assertFalse($this->rule->passes('nip', '7973640217'));
+    }
+
+    /**
+     * Test null NIP number.
+     *
+     * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
+     * @since 02/12/2019
+     */
+    public function testNullNIP()
+    {
+        $this->assertFalse($this->rule->passes('nip', null));
     }
 }

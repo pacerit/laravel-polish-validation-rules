@@ -37,7 +37,7 @@ class PESELRuleTest extends AbstractRuleTest
     {
         $validPesel = '39102999741';
 
-        $this->assertEquals(true, $this->rule->passes('pesel', $validPesel));
+        $this->assertTrue($this->rule->passes('pesel', $validPesel));
     }
 
     /**
@@ -51,6 +51,18 @@ class PESELRuleTest extends AbstractRuleTest
     {
         $notValidPesel = '39102999742';
 
-        $this->assertEquals(false, $this->rule->passes('pesel', $notValidPesel));
+        $this->assertFalse($this->rule->passes('pesel', $notValidPesel));
+    }
+
+    /**
+     * Test null PESEL number.
+     *
+     * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
+     * @since 02/12/2019
+     */
+    public function testNullPESEL()
+    {
+        $this->assertFalse($this->rule->passes('pessel', null));
     }
 }

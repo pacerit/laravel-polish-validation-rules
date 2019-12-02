@@ -1,11 +1,6 @@
 # Changelog
-## v.1.0.2
-    - improve code style format - StyleCI
-    - intetgration with TravisCI
-    
-## v.1.0.1
-    - add 'id_card_number' rule
-    - update README.md file
-
-## v.1.0.0
-    - initial release 
+## v.2.0.1
+    - fix validation while value is null
+    - update unit tests
+## v.2.0.0
+    - update dependencies for Laravel and Lumen 6.0.x compatibility

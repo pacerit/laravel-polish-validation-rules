@@ -27,15 +27,19 @@ class REGONRule
     /**
      * Check if given REGON number is valid.
      *
-     * @param string $string
+     * @param null|string $string
      *
      * @return bool
      *
      * @see http://phpedia.pl/wiki/REGON Souce of this algorithm
      * @since 2019-08-12
      */
-    private function checkREGON(string $string): bool
+    private function checkREGON(?string $string): bool
     {
+        if ($string === null) {
+            return false;
+        }
+
         if (strlen($string) != 9) {
             return false;
         }
