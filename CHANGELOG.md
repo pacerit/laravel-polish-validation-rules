@@ -1,4 +1,8 @@
 # Changelog
+## v.1.0.3
+    - fix validation while value is null
+    - update unit tests
+    
 ## v.1.0.2
     - improve code style format - StyleCI
     - intetgration with TravisCI

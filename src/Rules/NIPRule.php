@@ -27,15 +27,19 @@ class NIPRule
     /**
      * Check if given string is valid NIP number.
      *
-     * @param string $string
+     * @param null|string $string
      *
      * @return bool
      *
      * @see http://phpedia.pl/wiki/NIP Souce of this algorithm
      * @since 2019-08-12
      */
-    private function checkNIP(string $string): bool
+    private function checkNIP(?string $string): bool
     {
+        if ($string === null) {
+            return false;
+        }
+
         $string = preg_replace('/[^0-9]+/', '', $string);
 
         if (strlen($string) !== 10) {

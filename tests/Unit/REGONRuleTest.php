@@ -35,7 +35,7 @@ class REGONRuleTest extends AbstractRuleTest
      */
     public function testValidREGON()
     {
-        $this->assertEquals(true, $this->rule->passes('pesel', '499273139'));
+        $this->assertEquals(true, $this->rule->passes('regon', '499273139'));
     }
 
     /**
@@ -47,6 +47,18 @@ class REGONRuleTest extends AbstractRuleTest
      */
     public function testNotValidREGON()
     {
-        $this->assertEquals(false, $this->rule->passes('pesel', '499273138'));
+        $this->assertEquals(false, $this->rule->passes('regon', '499273138'));
+    }
+
+    /**
+     * Test null REGON number.
+     *
+     * @author Wiktor Pacer <kontakt@pacerit.pl>
+     *
+     * @since 02/12/2019
+     */
+    public function testNullREGON()
+    {
+        $this->assertFalse($this->rule->passes('regon', null));
     }
 }
