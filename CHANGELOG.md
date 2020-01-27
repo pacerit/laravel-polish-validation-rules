@@ -1,4 +1,7 @@
 # Changelog
+## v.2.0.2
+    - rules now implement Illuminate\Contracts\Validation\Rule interface
+    - remove composer.lock file
 ## v.2.0.1
     - fix validation while value is null
     - update unit tests

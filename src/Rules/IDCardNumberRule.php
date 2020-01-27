@@ -2,6 +2,8 @@
 
 namespace PacerIT\LaravelPolishValidationRules\Rules;
 
+use Illuminate\Contracts\Validation\Rule;
+
 /**
  * Class IDCardNumberRule.
  *
@@ -9,7 +11,7 @@ namespace PacerIT\LaravelPolishValidationRules\Rules;
  *
  * @since 2019-08-12
  */
-class IDCardNumberRule
+class IDCardNumberRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -73,5 +75,15 @@ class IDCardNumberRule
         }
 
         return true;
+    }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string|array
+     */
+    public function message()
+    {
+        return trans('polish-validation::validation.id_card_number');
     }
 }
