@@ -2,6 +2,8 @@
 
 namespace PacerIT\LaravelPolishValidationRules\Rules;
 
+use Illuminate\Contracts\Validation\Rule;
+
 /**
  * Class NIPRule.
  *
@@ -9,7 +11,7 @@ namespace PacerIT\LaravelPolishValidationRules\Rules;
  *
  * @since 2019-08-12
  */
-class NIPRule
+class NIPRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -61,5 +63,15 @@ class NIPRule
         }
 
         return false;
+    }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string|array
+     */
+    public function message()
+    {
+        return trans('polish-validation::validation.NIP');
     }
 }

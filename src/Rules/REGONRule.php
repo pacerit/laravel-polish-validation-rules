@@ -2,6 +2,8 @@
 
 namespace PacerIT\LaravelPolishValidationRules\Rules;
 
+use Illuminate\Contracts\Validation\Rule;
+
 /**
  * Class REGONRule.
  *
@@ -9,7 +11,7 @@ namespace PacerIT\LaravelPolishValidationRules\Rules;
  *
  * @since 2019-08-12
  */
-class REGONRule
+class REGONRule implements Rule
 {
     /**
      * Determine if the validation rule passes.
@@ -59,5 +61,15 @@ class REGONRule
         }
 
         return false;
+    }
+
+    /**
+     * Get the validation error message.
+     *
+     * @return string|array
+     */
+    public function message()
+    {
+        return trans('polish-validation::validation.REGON');
     }
 }
