@@ -47,26 +47,22 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
     {
         Validator::extend(
             'PESEL',
-            PESELRule::class.'@passes',
-            trans('polish-validation::validation.PESEL')
+            PESELRule::class.'@passes'
         );
 
         Validator::extend(
             'REGON',
-            REGONRule::class.'@passes',
-            trans('polish-validation::validation.REGON')
+            REGONRule::class.'@passes'
         );
 
         Validator::extend(
             'NIP',
-            NIPRule::class.'@passes',
-            trans('polish-validation::validation.NIP')
+            NIPRule::class.'@passes'
         );
 
         Validator::extend(
             'id_card_number',
-            IDCardNumberRule::class.'@passes',
-            trans('polish-validation::validation.id_card_number')
+            IDCardNumberRule::class.'@passes'
         );
     }
 }
