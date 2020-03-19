@@ -1,4 +1,6 @@
 # Changelog
+## v.3.0.0
+    - update dependencies for Laravel and Lumen 7.x.x compatibility
 ## v.2.0.2
     - rules now implement Illuminate\Contracts\Validation\Rule interface
     - remove composer.lock file
