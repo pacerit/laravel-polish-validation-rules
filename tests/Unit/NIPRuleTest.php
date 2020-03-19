@@ -20,7 +20,7 @@ class NIPRuleTest extends AbstractRuleTest
      *
      * @since 2019-08-12
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->rule = new NIPRule();
