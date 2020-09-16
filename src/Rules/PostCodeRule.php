@@ -5,7 +5,7 @@ namespace PacerIT\LaravelPolishValidationRules\Rules;
 use Illuminate\Contracts\Validation\Rule;
 
 /**
- * Class PostCodeRule
+ * Class PostCodeRule.
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
  *
@@ -13,12 +13,11 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class PostCodeRule implements Rule
 {
-
     /**
      * Determine if the validation rule passes.
      *
      * @param string $attribute
-     * @param mixed $value
+     * @param mixed  $value
      *
      * @return bool
      */
@@ -44,7 +43,7 @@ class PostCodeRule implements Rule
             return false;
         }
 
-        if (!preg_match('/^[0-9]{2}-?[0-9]{3}$/Du', $string) ) {
+        if (!preg_match('/^[0-9]{2}-?[0-9]{3}$/Du', $string)) {
             return false;
         }
 
