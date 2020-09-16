@@ -1,4 +1,6 @@
 # Changelog
+## v.4.0.1
+    - add post_code rule
 ## v.4.0.0
     - update dependencies for Laravel and Lumen 8.x.x compatibility
 ## v.3.0.0
