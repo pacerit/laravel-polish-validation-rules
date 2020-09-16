@@ -35,6 +35,7 @@ Framework | Package
 2. 'REGON' - validate [REGON](https://pl.wikipedia.org/wiki/REGON) number
 3. 'NIP' - validate [NIP](https://pl.wikipedia.org/wiki/NIP) number
 4. 'id_card_number' - validate Polish ID Card number
+5. 'post_code' - validate Polish post codes (accept codes in format 00-000 and 00000),
 
 ## Code Authors
 

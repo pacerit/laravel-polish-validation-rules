@@ -1,4 +1,6 @@
 # Changelog
+## v.2.0.3
+    - add post_code rule
 ## v.2.0.2
     - rules now implement Illuminate\Contracts\Validation\Rule interface
     - remove composer.lock file
