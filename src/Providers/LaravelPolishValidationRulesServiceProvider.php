@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use PacerIT\LaravelPolishValidationRules\Rules\IDCardNumberRule;
 use PacerIT\LaravelPolishValidationRules\Rules\NIPRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
+use PacerIT\LaravelPolishValidationRules\Rules\PostCodeRule;
 use PacerIT\LaravelPolishValidationRules\Rules\REGONRule;
 
 /**
@@ -47,22 +48,32 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
     {
         Validator::extend(
             'PESEL',
-            PESELRule::class.'@passes'
+            PESELRule::class.'@passes',
+            trans('polish-validation::validation.PESEL')
         );
 
         Validator::extend(
             'REGON',
-            REGONRule::class.'@passes'
+            REGONRule::class.'@passes',
+            trans('polish-validation::validation.REGON')
         );
 
         Validator::extend(
             'NIP',
-            NIPRule::class.'@passes'
+            NIPRule::class.'@passes',
+            trans('polish-validation::validation.NIP')
         );
 
         Validator::extend(
             'id_card_number',
-            IDCardNumberRule::class.'@passes'
+            IDCardNumberRule::class.'@passes',
+            trans('polish-validation::validation.id_card_number')
+        );
+
+        Validator::extend(
+            'post_code',
+            PostCodeRule::class.'@passes',
+            trans('polish-validation::validation.post_code')
         );
     }
 }

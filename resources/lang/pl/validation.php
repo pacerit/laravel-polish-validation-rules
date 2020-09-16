@@ -6,5 +6,6 @@ return [
     'REGON'          => 'Numer REGON jest niepoprawny',
     'NIP'            => 'Numer NIP jest niepoprawny!',
     'id_card_number' => 'Numer dowodu osobistego jest niepoprawny!',
+    'post_code'      => 'Kod pocztowy niepoprawny!',
 
 ];
