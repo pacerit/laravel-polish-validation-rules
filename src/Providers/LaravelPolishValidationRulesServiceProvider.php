@@ -8,6 +8,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\IDCardNumberRule;
 use PacerIT\LaravelPolishValidationRules\Rules\NIPRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PostCodeRule;
+use PacerIT\LaravelPolishValidationRules\Rules\PWZRule;
 use PacerIT\LaravelPolishValidationRules\Rules\REGONRule;
 
 /**
@@ -74,6 +75,12 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
             'post_code',
             PostCodeRule::class.'@passes',
             trans('polish-validation::validation.post_code')
+        );
+
+        Validator::extend(
+            'PWZ',
+            PWZRule::class.'@passes',
+            trans('polish-validation::validation.PWZ')
         );
     }
 }

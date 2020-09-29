@@ -1,4 +1,6 @@
 # Changelog
+## v.4.0.2
+    - add PWZ rule
 ## v.4.0.1
     - add post_code rule
 ## v.4.0.0
