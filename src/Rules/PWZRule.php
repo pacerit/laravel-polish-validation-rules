@@ -48,7 +48,7 @@ class PWZRule implements Rule
         }
 
         // Get control number.
-        $control = (int)substr($string, 0, 1);
+        $control = (int) substr($string, 0, 1);
 
         if ($control === 0) {
             return false;
@@ -57,7 +57,7 @@ class PWZRule implements Rule
         // Calculate control number.
         $controlSum = 0;
         for ($x = 1; $x <= 7; $x++) {
-            $controlSum += ((int)substr($string, $x, 1) * $x);
+            $controlSum += ((int) substr($string, $x, 1) * $x);
         }
 
         $calculatedControl = ($controlSum % 11);

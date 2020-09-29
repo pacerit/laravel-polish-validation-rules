@@ -53,7 +53,6 @@ class PWZRuleTest extends AbstractRuleTest
         $this->assertFalse($this->rule->passes('PWZ', 0000000));
         // Control sum not valid.
         $this->assertFalse($this->rule->passes('PWZ', 1000000));
-
     }
 
     /**
