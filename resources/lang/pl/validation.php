@@ -7,5 +7,6 @@ return [
     'NIP'            => 'Numer NIP jest niepoprawny!',
     'id_card_number' => 'Numer dowodu osobistego jest niepoprawny!',
     'post_code'      => 'Kod pocztowy niepoprawny!',
+    'PWZ'            => 'Numer PWZ niepoprawny!',
 
 ];
