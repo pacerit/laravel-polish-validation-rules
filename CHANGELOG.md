@@ -1,4 +1,6 @@
 # Changelog
+## v.4.0.3
+    - compatibility with PHP version 8.x (updated composer.json file)
 ## v.4.0.2
     - add PWZ rule
 ## v.4.0.1
