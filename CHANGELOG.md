@@ -1,4 +1,6 @@
 # Changelog
+## v.3.0.3
+    - fix typo in English translations (thanks mhajder!)
 ## v.3.0.2
     - add PWZ rule
 ## v.3.0.1
