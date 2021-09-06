@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 use PacerIT\LaravelPolishValidationRules\Rules\IDCardNumberRule;
 use PacerIT\LaravelPolishValidationRules\Rules\NIPRule;
+use PacerIT\LaravelPolishValidationRules\Rules\PassportNumberRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PostCodeRule;
 use PacerIT\LaravelPolishValidationRules\Rules\PWZRule;
@@ -81,6 +82,12 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
             'PWZ',
             PWZRule::class.'@passes',
             trans('polish-validation::validation.PWZ')
+        );
+
+        Validator::extend(
+            'passport_number',
+            PassportNumberRule::class.'@passes',
+            trans('polish-validation::validation.passport_number')
         );
     }
 }

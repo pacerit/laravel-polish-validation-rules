@@ -37,6 +37,7 @@ Framework | Package
 4. 'id_card_number' - validate Polish ID Card number
 5. 'post_code' - validate Polish post codes (accept codes in format 00-000 and 00000),
 6. 'PWZ' - validate PWZ (Prawo wykonywania zawodu lekarza/farmaceuty) numer (more information [HERE](https://nil.org.pl/rejestry/centralny-rejestr-lekarzy/zasady-weryfikowania-nr-prawa-wykonywania-zawodu))
+7. 'passport_number' - validate Polish passport number
 
 ## Code Authors
 
