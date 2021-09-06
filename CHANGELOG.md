@@ -1,4 +1,6 @@
 # Changelog
+## v.4.0.5
+    - add passport_numer role
 ## v.4.0.4
     - fix typo in English translations (thanks mhajder!)
 ## v.4.0.3
