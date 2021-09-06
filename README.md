@@ -24,14 +24,14 @@ Framework | Package | Note
 5.8.x     | ^1.x.x  | No longer maintained.
 6.0.x     | ^2.x.x  |
 7.x.x     | ^3.x.x  |
-8.x.x     | ^4.x.x  |
+8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3
 #### Lumen
 Framework | Package | Note
 :---------|:--------|:------
 5.8.x     | ^1.x.x  | No longer maintained.
 6.0.x     | ^2.x.x  |
 7.x.x     | ^3.x.x  |
-8.x.x     | ^4.x.x  |
+8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3
 
 ## Rules
 
