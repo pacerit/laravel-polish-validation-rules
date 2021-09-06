@@ -1,4 +1,6 @@
 # Changelog
+## v.3.0.4
+    - add passport_number rule
 ## v.3.0.3
     - fix typo in English translations (thanks mhajder!)
 ## v.3.0.2
