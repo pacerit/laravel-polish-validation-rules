@@ -3,16 +3,21 @@
 namespace PacerIT\LaravelPolishValidationRules\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Arr;
 
 /**
  * Class PESELRule.
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
- *
- * @since 2019-08-12
  */
 class PESELRule implements Rule
 {
+
+    // Gender digit position in PESEL number.
+    const GENDER_POSITION = 9;
+    const GENDER_MALE = 0;
+    const GENDER_FEMALE = 1;
+
     /**
      * Determine if the validation rule passes.
      *
@@ -21,9 +26,33 @@ class PESELRule implements Rule
      *
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value, $parameters = [])
     {
-        return $this->checkPESEL($value);
+        // First we check if PESEL is valid. If not, there is no need to check other attributes.
+        if (!$this->checkPESEL($value)) {
+            return false;
+        }
+
+        // Get parameters.
+        $parameters = explode(':', (string) Arr::first($parameters));
+
+        $result = true;
+        foreach ($parameters as $mode) {
+            switch ($mode) {
+                case 'gender_male':
+                    $result = $this->validateGender($value);
+                    break;
+
+                case 'gender_female':
+                    $result = $this->validateGender($value, self::GENDER_FEMALE);
+                    break;
+
+                default:
+                    return true;
+            }
+        }
+
+        return $result;
     }
 
     /**
@@ -34,7 +63,6 @@ class PESELRule implements Rule
      * @return bool
      *
      * @see http://phpedia.pl/wiki/PESEL Souce of this algorithm
-     * @since 2019-08-12
      */
     private function checkPESEL(?string $string): bool
     {
@@ -56,6 +84,30 @@ class PESELRule implements Rule
         $intControlNr = ($int == 10) ? 0 : $int;
 
         if ($intControlNr == $string[10]) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Validate gender in PESEL number.
+     *
+     * @param string $pesel
+     * @param int $gender
+     *
+     * @return bool
+     */
+    private function validateGender(string $pesel, int $gender = self::GENDER_MALE): bool
+    {
+        $genderFromPesel = $pesel[self::GENDER_POSITION];
+        $result = (bool) ($genderFromPesel % 2);
+
+        if ($gender === self::GENDER_MALE && $result) {
+            return true;
+        }
+
+        if ($gender === self::GENDER_FEMALE && !$result) {
             return true;
         }
 

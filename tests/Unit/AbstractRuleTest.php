@@ -25,5 +25,4 @@ abstract class AbstractRuleTest extends TestCase
     {
         return [LaravelPolishValidationRulesServiceProvider::class];
     }
-
 }

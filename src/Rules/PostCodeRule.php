@@ -21,13 +21,14 @@ class PostCodeRule implements Rule
      *
      * @param string $attribute
      * @param mixed  $value
+     * @param array $parameters
      *
      * @return bool
      */
     public function passes($attribute, $value, $parameters = [])
     {
         // Get first parameter.
-        $mode = (string)Arr::first($parameters);
+        $mode = (string) Arr::first($parameters);
 
         switch ($mode) {
             case 'with_dash':

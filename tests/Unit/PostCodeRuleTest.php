@@ -2,7 +2,6 @@
 
 namespace Tests\Unit;
 
-use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\Facades\Validator;
 use PacerIT\LaravelPolishValidationRules\Rules\PostCodeRule;
 
@@ -56,15 +55,13 @@ class PostCodeRuleTest extends AbstractRuleTest
     }
 
     /**
-     * Test null PostCode "with_dash" option.
+     * Test PostCode "with_dash" option.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
      */
     public function testWithDashOption()
     {
-        $rules = [
-            'post_code' => 'post_code:with_dash'
-        ];
+        $rules = ['post_code' => 'post_code:with_dash'];
 
         // Test with correct data.
         $data = ['post_code' => '72-200'];
@@ -78,15 +75,13 @@ class PostCodeRuleTest extends AbstractRuleTest
     }
 
     /**
-     * Test null PostCode "without_dash" option.
+     * Test PostCode "without_dash" option.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
      */
     public function testWithoutDashOption()
     {
-        $rules = [
-            'post_code' => 'post_code:without_dash'
-        ];
+        $rules = ['post_code' => 'post_code:without_dash'];
 
         // Test with correct data.
         $data = ['post_code' => '72200'];
