@@ -1,4 +1,7 @@
 # Changelog
+## v.4.1.0
+    - update post_code rule - add support for options (see README.md)
+    - update PESEL rule - add suport for options (see README.md)
 ## v.4.0.5
     - add passport_numer role
 ## v.4.0.4
