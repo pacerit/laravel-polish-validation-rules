@@ -3,14 +3,13 @@
 namespace Tests\Unit;
 
 use Illuminate\Contracts\Validation\Rule;
-use PHPUnit\Framework\TestCase;
+use Orchestra\Testbench\TestCase;
+use PacerIT\LaravelPolishValidationRules\Providers\LaravelPolishValidationRulesServiceProvider;
 
 /**
  * Class AbstractRuleTest.
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
- *
- * @since 2019-08-12
  */
 abstract class AbstractRuleTest extends TestCase
 {
@@ -18,4 +17,13 @@ abstract class AbstractRuleTest extends TestCase
      * @var Rule
      */
     protected $rule;
+
+    /**
+     * @inheritDoc
+     */
+    protected function getPackageProviders($app)
+    {
+        return [LaravelPolishValidationRulesServiceProvider::class];
+    }
+
 }

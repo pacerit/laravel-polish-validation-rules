@@ -2,14 +2,14 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\Facades\Validator;
 use PacerIT\LaravelPolishValidationRules\Rules\PostCodeRule;
 
 /**
  * Class PostCodeRuleTest.
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
- *
- * @since 2019-08-12
  */
 class PostCodeRuleTest extends AbstractRuleTest
 {
@@ -17,8 +17,6 @@ class PostCodeRuleTest extends AbstractRuleTest
      * Set up test.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
-     *
-     * @since 2019-08-12
      */
     public function setUp(): void
     {
@@ -30,8 +28,6 @@ class PostCodeRuleTest extends AbstractRuleTest
      * Test valid PostCode number.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
-     *
-     * @since 2019-08-12
      */
     public function testValidPostCode()
     {
@@ -43,8 +39,6 @@ class PostCodeRuleTest extends AbstractRuleTest
      * Test not valid PostCode number.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
-     *
-     * @since 2019-08-12
      */
     public function testNotValidPostCode()
     {
@@ -55,11 +49,54 @@ class PostCodeRuleTest extends AbstractRuleTest
      * Test null PostCode number.
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
-     *
-     * @since 02/12/2019
      */
     public function testNullPostCode()
     {
         $this->assertFalse($this->rule->passes('post_code', null));
     }
+
+    /**
+     * Test null PostCode "with_dash" option.
+     *
+     * @author Wiktor Pacer <kontakt@pacerit.pl>
+     */
+    public function testWithDashOption()
+    {
+        $rules = [
+            'post_code' => 'post_code:with_dash'
+        ];
+
+        // Test with correct data.
+        $data = ['post_code' => '72-200'];
+        $validator = Validator::make($data, $rules);
+        $this->assertFalse($validator->fails());
+
+        // Test with wrong data.
+        $data = ['post_code' => '72200'];
+        $validator = Validator::make($data, $rules);
+        $this->assertTrue($validator->fails());
+    }
+
+    /**
+     * Test null PostCode "without_dash" option.
+     *
+     * @author Wiktor Pacer <kontakt@pacerit.pl>
+     */
+    public function testWithoutDashOption()
+    {
+        $rules = [
+            'post_code' => 'post_code:without_dash'
+        ];
+
+        // Test with correct data.
+        $data = ['post_code' => '72200'];
+        $validator = Validator::make($data, $rules);
+        $this->assertFalse($validator->fails());
+
+        // Test with wrong data.
+        $data = ['post_code' => '72-200'];
+        $validator = Validator::make($data, $rules);
+        $this->assertTrue($validator->fails());
+    }
+
 }

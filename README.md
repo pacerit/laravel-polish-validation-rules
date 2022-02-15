@@ -41,7 +41,17 @@ Framework | Package | Note
 2. 'REGON' - validate [REGON](https://pl.wikipedia.org/wiki/REGON) number
 3. 'NIP' - validate [NIP](https://pl.wikipedia.org/wiki/NIP) number
 4. 'id_card_number' - validate Polish ID Card number
-5. 'post_code' - validate Polish post codes (accept codes in format 00-000 and 00000),
+5. 'post_code' - validate Polish post codes. By default accept codes in format 00-000 and 00000. You can change this with options:
+   * with_dash - only post codes with format 00-000 are valid
+   * without_dash - only post codew with format 00000 are valid
+
+Usage example:
+```php
+$validator = Validator::make(
+    $request->all(),
+    ['post_code' => 'post_code:without_dash']
+);
+```
 6. 'PWZ' - validate PWZ (Prawo wykonywania zawodu lekarza/farmaceuty) numer (more information [HERE](https://nil.org.pl/rejestry/centralny-rejestr-lekarzy/zasady-weryfikowania-nr-prawa-wykonywania-zawodu))
 7. 'passport_number' - validate Polish passport number
 
