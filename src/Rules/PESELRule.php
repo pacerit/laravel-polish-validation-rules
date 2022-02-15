@@ -23,6 +23,7 @@ class PESELRule implements Rule
      *
      * @param string $attribute
      * @param mixed  $value
+     * @param array  $parameters
      *
      * @return bool
      */
@@ -94,7 +95,7 @@ class PESELRule implements Rule
      * Validate gender in PESEL number.
      *
      * @param string $pesel
-     * @param int $gender
+     * @param int    $gender
      *
      * @return bool
      */

@@ -21,7 +21,7 @@ class PostCodeRule implements Rule
      *
      * @param string $attribute
      * @param mixed  $value
-     * @param array $parameters
+     * @param array  $parameters
      *
      * @return bool
      */
