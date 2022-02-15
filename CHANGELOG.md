@@ -1,4 +1,6 @@
 # Changelog
+## v.5.0.0
+    - update dependencies for Laravel and Lumen 9.x.x compatibility
 ## v.4.0.5
     - add passport_numer role
 ## v.4.0.4
