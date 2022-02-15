@@ -22,26 +22,58 @@ For customize validaiton messages run:
 Framework | Package | Note
 :---------|:--------|:------
 5.8.x     | ^1.x.x  | No longer maintained.
-6.0.x     | ^2.x.x  |
-7.x.x     | ^3.x.x  |
+6.0.x     | ^2.x.x  | Bug fixes only.
+7.x.x     | ^3.x.x  | Bug fixes only.
 8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3
+9.x.x     | ^5.x.x  |
 #### Lumen
 Framework | Package | Note
 :---------|:--------|:------
 5.8.x     | ^1.x.x  | No longer maintained.
-6.0.x     | ^2.x.x  |
-7.x.x     | ^3.x.x  |
+6.0.x     | ^2.x.x  | Bug fixes only.
+7.x.x     | ^3.x.x  | Bug fixes only.
 8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3
+9.x.x     | ^5.x.x  |
 
 ## Rules
 
-1. 'PESEL' - validate [PESEL](https://pl.wikipedia.org/wiki/PESEL) number
+1. 'PESEL' - validate [PESEL](https://pl.wikipedia.org/wiki/PESEL) number. We can validate additional parameters:
+   * Gender - check if gender value in PESEL
+     * gender_male
+     * gender_female
 2. 'REGON' - validate [REGON](https://pl.wikipedia.org/wiki/REGON) number
 3. 'NIP' - validate [NIP](https://pl.wikipedia.org/wiki/NIP) number
 4. 'id_card_number' - validate Polish ID Card number
-5. 'post_code' - validate Polish post codes (accept codes in format 00-000 and 00000),
+5. 'post_code' - validate Polish post codes. By default accept codes in format 00-000 and 00000. You can change this with options:
+   * with_dash - only post codes with format 00-000 are valid
+   * without_dash - only post codew with format 00000 are valid
 6. 'PWZ' - validate PWZ (Prawo wykonywania zawodu lekarza/farmaceuty) numer (more information [HERE](https://nil.org.pl/rejestry/centralny-rejestr-lekarzy/zasady-weryfikowania-nr-prawa-wykonywania-zawodu))
 7. 'passport_number' - validate Polish passport number
+
+## Usage example
+
+Without optional parameters
+```php
+$validator = Validator::make(
+    $request->all(),
+    [
+        'post_code'  => 'post_code',
+        'pesel'      => 'PESEL',
+        'nip_number' => 'NIP',
+    ]
+);
+```
+
+With optional parameters
+```php
+$validator = Validator::make(
+    $request->all(),
+    [
+        'post_code' => 'post_code:without_dash',
+        'pesel'     => 'PESEL:gender_female',
+    ]
+);
+```
 
 ## Code Authors
 
