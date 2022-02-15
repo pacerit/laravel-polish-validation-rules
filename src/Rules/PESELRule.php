@@ -12,7 +12,6 @@ use Illuminate\Support\Arr;
  */
 class PESELRule implements Rule
 {
-
     // Gender digit position in PESEL number.
     const GENDER_POSITION = 9;
     const GENDER_MALE = 0;
