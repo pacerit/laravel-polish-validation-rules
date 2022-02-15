@@ -3,27 +3,43 @@
 namespace PacerIT\LaravelPolishValidationRules\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Arr;
 
 /**
  * Class PostCodeRule.
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
- *
- * @since 09/09/2020
  */
 class PostCodeRule implements Rule
 {
+    const REGEX_DASH_REQUIRED = '/^[0-9]{2}-[0-9]{3}$/Du';
+    const REGEX_DASH_NOT_ALLOWED = '/^[0-9]{5}$/Du';
+    const REGEX_DASH_OPTIONAL = '/^[0-9]{2}-?[0-9]{3}$/Du';
+
     /**
      * Determine if the validation rule passes.
      *
      * @param string $attribute
      * @param mixed  $value
+     * @param array  $parameters
      *
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value, $parameters = [])
     {
-        return $this->checkPostCode($value);
+        // Get first parameter.
+        $mode = (string) Arr::first($parameters);
+
+        switch ($mode) {
+            case 'with_dash':
+                return $this->checkPostCode($value, 1);
+
+            case 'without_dash':
+                return $this->checkPostCode($value, 2);
+
+            default:
+                return $this->checkPostCode($value);
+        }
     }
 
     /**
@@ -34,20 +50,28 @@ class PostCodeRule implements Rule
      * @return bool
      *
      * @author Wiktor Pacer <kontakt@pacerit.pl>
-     *
-     * @since 09/09/2020
      */
-    private function checkPostCode(?string $string): bool
+    private function checkPostCode(?string $string, int $mode = 0): bool
     {
         if ($string === null) {
             return false;
         }
 
-        if (!preg_match('/^[0-9]{2}-?[0-9]{3}$/Du', $string)) {
-            return false;
+        switch ($mode) {
+            case 1:
+                $regex = self::REGEX_DASH_REQUIRED;
+                break;
+
+            case 2:
+                $regex = self::REGEX_DASH_NOT_ALLOWED;
+                break;
+
+            default:
+                $regex = self::REGEX_DASH_OPTIONAL;
+                break;
         }
 
-        return true;
+        return preg_match($regex, $string);
     }
 
     /**

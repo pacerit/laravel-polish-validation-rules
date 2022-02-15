@@ -1,4 +1,8 @@
 # Changelog
+## v.5.0.0
+    - update post_code rule - add support for options (see README.md)
+    - update PESEL rule - add suport for options (see README.md)
+    - update dependencies for Laravel and Lumen 9.x.x compatibility
 ## v.4.0.5
     - add passport_numer role
 ## v.4.0.4
