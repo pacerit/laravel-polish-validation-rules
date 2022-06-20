@@ -33,7 +33,7 @@ class LaravelPolishValidationRulesServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom($path, 'polish-validation');
 
         $this->publishes([
-            $path => $this->app->resourcePath('lang/vendor/polish-validation'),
+            $path => $this->app->langPath('vendor/polish-validation'),
         ]);
 
         $this->registerRules();
