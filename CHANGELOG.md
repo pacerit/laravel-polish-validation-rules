@@ -1,4 +1,6 @@
 # Changelog
+## v.5.0.1
+    - use langPath to support new lang folder in Laravel 9 (thanks wbaryla!)
 ## v.5.0.0
     - update post_code rule - add support for options (see README.md)
     - update PESEL rule - add suport for options (see README.md)
