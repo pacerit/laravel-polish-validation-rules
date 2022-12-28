@@ -135,4 +135,81 @@ class PESELRuleTest extends AbstractRuleTest
             $this->assertTrue($validator->fails());
         }
     }
+
+    /**
+     * Test "born_before" option.
+     *
+     * @return void
+     */
+    public function testBornBeforeOption()
+    {
+        // Birth date - 2008-06-07.
+        $testPesel = '08260713768';
+        $data = ['pesel' => $testPesel];
+
+        // Test is true.
+        $rules = ['pesel' => 'PESEL:born_before,2022-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertFalse($validator->fails());
+
+        // Test is false.
+        $rules = ['pesel' => 'PESEL:born_before,2000-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertTrue($validator->fails());
+    }
+
+    /**
+     * Test "born_after" option.
+     *
+     * @return void
+     */
+    public function testBornAfterOption()
+    {
+        // Birth date - 2008-06-07.
+        $testPesel = '08260713768';
+        $data = ['pesel' => $testPesel];
+
+        // Test is true.
+        $rules = ['pesel' => 'PESEL:born_after,2000-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertFalse($validator->fails());
+
+        // Test is false.
+        $rules = ['pesel' => 'PESEL:born_after,2022-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertTrue($validator->fails());
+    }
+
+    /**
+     * Test passing multiple options.
+     *
+     * @return void
+     */
+    public function testMultipleOptions()
+    {
+        // Female, Birth date - 2008-06-07.
+        $testPesel = '08260713768';
+        $data = ['pesel' => $testPesel];
+
+        // Test is true - correct data range and gender.
+        $rules = ['pesel' => 'PESEL:gender_female:born_before,2022-01-01:born_after,2000-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertFalse($validator->fails());
+
+        // Test is false - correct gender, correct after date but wrong before date.
+        $rules = ['pesel' => 'PESEL:gender_female:born_before,2007-01-01:born_after,2000-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertTrue($validator->fails());
+
+        // Test is false - correct gender, correct before date but wrong after date.
+        $rules = ['pesel' => 'PESEL:gender_female:born_before,2022-01-01:born_after,2020-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertTrue($validator->fails());
+
+        // Test is true - correct data range but wrong gender.
+        $rules = ['pesel' => 'PESEL:gender_male:born_before,2022-01-01:born_after,2000-01-01'];
+        $validator = Validator::make($data, $rules);
+        $this->assertTrue($validator->fails());
+    }
+
 }

@@ -42,11 +42,16 @@ class PESELRule implements Rule
         }
 
         // Get parameters.
-        $parameters = explode(':', (string) Arr::first($parameters));
+        $parameters = implode(',', $parameters);
+        $parameters = explode(':', (string)$parameters);
 
         $result = true;
-        foreach ($parameters as $mode) {
-            switch ($mode) {
+        foreach ($parameters as $optionWithParameters) {
+            // Get option and parameters.
+            $parameterData = explode(',', $optionWithParameters);
+            $option = Arr::first($parameterData);
+
+            switch ($option) {
                 case self::PARAMETER_GENDER_MALE:
                     $result = $this->validateGender($value);
                     break;
@@ -55,12 +60,26 @@ class PESELRule implements Rule
                     $result = $this->validateGender($value, self::GENDER_FEMALE);
                     break;
 
+                case self::PARAMETER_BORN_BEFORE:
+
+                    $result = $this->validateBirthDate($value, (string)Arr::get($parameterData, 1), true);
+                    break;
+
+                case self::PARAMETER_BORN_AFTER:
+                    $result = $this->validateBirthDate($value, (string)Arr::get($parameterData, 1));
+                    break;
+
                 default:
-                    return true;
+                    $result = true;
+            }
+
+            // Fail on first error.
+            if (!$result) {
+                return false;
             }
         }
 
-        return $result;
+        return true;
     }
 
     /**
@@ -211,6 +230,34 @@ class PESELRule implements Rule
         } catch (InvalidFormatException $exception) {
             return null;
         }
+    }
+
+    /**
+     * Validate if date is before or after given date.
+     *
+     * @param string $pesel
+     * @param string $date
+     * @param bool $before
+     *
+     * @return bool
+     */
+    private function validateBirthDate(string $pesel, string $date, bool $before = false): bool
+    {
+        // Get birth date from PESEL.
+        $birthDate = $this->getBirthDate($pesel);
+
+        // Parse date from request.
+        try {
+            $dateToCompare = Carbon::parse($date);
+        } catch (InvalidFormatException $exception) {
+            return false;
+        }
+
+        if ($before) {
+            return $birthDate->isBefore($dateToCompare);
+        }
+
+        return $birthDate->isAfter($dateToCompare);
     }
 
     /**
