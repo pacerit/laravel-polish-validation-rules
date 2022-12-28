@@ -50,9 +50,16 @@ class PESELRuleTest extends AbstractRuleTest
      */
     public function testNotValidPESEL()
     {
-        $notValidPesel = '39102999742';
+        $notValidPesel = [
+            '39102999742',
+            '00000000000',
+            '44444444444',
+            '19222900001',
+        ];
 
-        $this->assertFalse($this->rule->passes('pesel', $notValidPesel));
+        foreach ($notValidPesel as $pesel) {
+            $this->assertFalse($this->rule->passes('pesel', $pesel));
+        }
     }
 
     /**

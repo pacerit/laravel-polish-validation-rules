@@ -79,7 +79,9 @@ $validator = Validator::make(
 
 The algorithms used in the functions are based on existing solutions. Below are links to the sources:
 
-* PESEL - [http://phpedia.pl/wiki/PESEL](http://phpedia.pl/wiki/PESEL)
+* PESEL
+  * checksum checking algorithm - [http://phpedia.pl/wiki/PESEL](http://phpedia.pl/wiki/PESEL)
+  * extract/validate bith date - [KKSzymanowski/PESEL](https://github.com/KKSzymanowski/PESEL/blob/master/src/Pesel.php)
 * REGON - [http://phpedia.pl/wiki/REGON](http://phpedia.pl/wiki/REGON)
 * NIP - [http://phpedia.pl/wiki/NIP](http://phpedia.pl/wiki/NIP)
 * id_card_number - [http://www.algorytm.org](http://www.algorytm.org/numery-identyfikacyjne/numer-dowodu-osobistego/do-php.html)
