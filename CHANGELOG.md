@@ -1,4 +1,10 @@
 # Changelog
+## v.4.2.0
+**Possible breaking changes while updating from previous version. See upgrade guide [here](UPGRADE_GUIDE.md)**
+
+    - fix PESEL validation for numbers with birth date encoded incorrectly (thanks bbprojectnet!)
+    - add new options for PESEL rule - born_before, born_after (see README.md)
+    - drop support for Laravel 6.x and 7.x
 ## v.4.1.0
     - update post_code rule - add support for options (see README.md)
     - update PESEL rule - add suport for options (see README.md)
