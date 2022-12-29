@@ -18,35 +18,30 @@ For customize validaiton messages run:
     php artisan vendor:publish --provider "PacerIT\LaravelPolishValidationRules\Providers\LaravelPolishValidationRulesServiceProvider"
     
 ### Version compatibility
-#### Laravel
+#### Laravel/Lumen
 Framework | Package | Note
 :---------|:--------|:------
 5.8.x     | ^1.x.x  | No longer maintained.
-6.0.x     | ^2.x.x  | Bug fixes only.
-7.x.x     | ^3.x.x  | Bug fixes only.
-8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3
-9.x.x     | ^5.x.x  |
-#### Lumen
-Framework | Package | Note
-:---------|:--------|:------
-5.8.x     | ^1.x.x  | No longer maintained.
-6.0.x     | ^2.x.x  | Bug fixes only.
-7.x.x     | ^3.x.x  | Bug fixes only.
-8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3
+6.0.x     | ^2.x.x  | No longer maintained.
+7.x.x     | ^3.x.x  | No longer maintained.
+8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3, Bug fixes only.
 9.x.x     | ^5.x.x  |
 
 ## Rules
 
 1. 'PESEL' - validate [PESEL](https://pl.wikipedia.org/wiki/PESEL) number. We can validate additional parameters:
    * Gender - check if gender value in PESEL
-     * gender_male
-     * gender_female
+     * `gender_male`
+     * `gender_female`
+   * Birth date - checking if birth date decoded from PESEL number is before or after date defined in rules
+     * `born_before,Y-m-d` - i.e. `PESEL:born_before,2022-01-01`
+     * `born_after,Y-m-d` - i.e. `PESEL:born_after,2000-01-01`
 2. 'REGON' - validate [REGON](https://pl.wikipedia.org/wiki/REGON) number
 3. 'NIP' - validate [NIP](https://pl.wikipedia.org/wiki/NIP) number
 4. 'id_card_number' - validate Polish ID Card number
 5. 'post_code' - validate Polish post codes. By default accept codes in format 00-000 and 00000. You can change this with options:
    * with_dash - only post codes with format 00-000 are valid
-   * without_dash - only post codew with format 00000 are valid
+   * without_dash - only post code with format 00000 are valid
 6. 'PWZ' - validate PWZ (Prawo wykonywania zawodu lekarza/farmaceuty) numer (more information [HERE](https://nil.org.pl/rejestry/centralny-rejestr-lekarzy/zasady-weryfikowania-nr-prawa-wykonywania-zawodu))
 7. 'passport_number' - validate Polish passport number
 
@@ -75,11 +70,23 @@ $validator = Validator::make(
 );
 ```
 
+Multiple options
+```php
+$validator = Validator::make(
+    $request->all(),
+    [
+        'pesel' => 'PESEL:gender_male:born_before,2022-01-01:born_after,2000-01-01',
+    ]
+);
+```
+
 ## Code Authors
 
 The algorithms used in the functions are based on existing solutions. Below are links to the sources:
 
-* PESEL - [http://phpedia.pl/wiki/PESEL](http://phpedia.pl/wiki/PESEL)
+* PESEL
+  * checksum checking algorithm - [http://phpedia.pl/wiki/PESEL](http://phpedia.pl/wiki/PESEL)
+  * extract/validate bith date - [KKSzymanowski/PESEL](https://github.com/KKSzymanowski/PESEL/blob/master/src/Pesel.php)
 * REGON - [http://phpedia.pl/wiki/REGON](http://phpedia.pl/wiki/REGON)
 * NIP - [http://phpedia.pl/wiki/NIP](http://phpedia.pl/wiki/NIP)
 * id_card_number - [http://www.algorytm.org](http://www.algorytm.org/numery-identyfikacyjne/numer-dowodu-osobistego/do-php.html)
