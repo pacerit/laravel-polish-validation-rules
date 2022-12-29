@@ -1,4 +1,10 @@
 # Changelog
+## v.5.1.0
+**Possible breaking changes while updating from previous version. See upgrade guide [here](UPGRADE_GUIDE.md)**
+
+    - fix PESEL validation for numbers with birth date encoded incorrectly (thanks bbprojectnet!)
+    - add new options for PESEL rule - born_before, born_after (see README.md)
+    - drop support for Laravel 6.x and 7.x
 ## v.5.0.1
     - use langPath to support new lang folder in Laravel 9 (thanks wbaryla!)
 ## v.5.0.0
