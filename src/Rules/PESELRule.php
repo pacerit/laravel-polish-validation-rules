@@ -43,7 +43,7 @@ class PESELRule implements Rule
 
         // Get parameters.
         $parameters = implode(',', $parameters);
-        $parameters = explode(':', (string)$parameters);
+        $parameters = explode(':', (string) $parameters);
 
         $result = true;
         foreach ($parameters as $optionWithParameters) {
@@ -62,11 +62,11 @@ class PESELRule implements Rule
 
                 case self::PARAMETER_BORN_BEFORE:
 
-                    $result = $this->validateBirthDate($value, (string)Arr::get($parameterData, 1), true);
+                    $result = $this->validateBirthDate($value, (string) Arr::get($parameterData, 1), true);
                     break;
 
                 case self::PARAMETER_BORN_AFTER:
-                    $result = $this->validateBirthDate($value, (string)Arr::get($parameterData, 1));
+                    $result = $this->validateBirthDate($value, (string) Arr::get($parameterData, 1));
                     break;
 
                 default:
@@ -179,7 +179,7 @@ class PESELRule implements Rule
          *
          * See - https://pl.wikipedia.org/wiki/PESEL#Data_urodzenia
          */
-        $century = (int)substr($pesel, 2, 1);
+        $century = (int) substr($pesel, 2, 1);
 
         /*
          * Add offset of 2 - that's because the numbers 8 and 9 represent an earlier century than the other numbers.
@@ -213,7 +213,6 @@ class PESELRule implements Rule
         $century += 18;
         $year = $century.$year;
 
-
         // If number after modulo is smaller than 10, add "0" on the begin on month number.
         $month = str_pad($month % 20, 2, '0', STR_PAD_LEFT);
 
@@ -237,7 +236,7 @@ class PESELRule implements Rule
      *
      * @param string $pesel
      * @param string $date
-     * @param bool $before
+     * @param bool   $before
      *
      * @return bool
      */

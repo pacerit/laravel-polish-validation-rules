@@ -211,5 +211,4 @@ class PESELRuleTest extends AbstractRuleTest
         $validator = Validator::make($data, $rules);
         $this->assertTrue($validator->fails());
     }
-
 }
