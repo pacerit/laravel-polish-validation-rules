@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use PacerIT\LaravelPolishValidationRules\Rules\PassportNumberRule;
 
@@ -9,7 +9,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\PassportNumberRule;
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
  */
-class PassportNumberTest extends AbstractRuleTest
+class PassportNumberTest extends AbstractRuleTestCase
 {
     /**
      * Set up test.
