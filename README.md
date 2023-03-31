@@ -21,11 +21,12 @@ For customize validaiton messages run:
 #### Laravel/Lumen
 Framework | Package | Note
 :---------|:--------|:------
-5.8.x     | ^1.x.x  | No longer maintained.
-6.0.x     | ^2.x.x  | No longer maintained.
-7.x.x     | ^3.x.x  | No longer maintained.
-8.x.x     | ^4.x.x  | PHP ^8.0 Supported from 4.0.3, Bug fixes only.
-9.x.x     | ^5.x.x  |
+5.8.x      | ^1.x.x  | No longer maintained.
+6.0.x      | ^2.x.x  | No longer maintained.
+7.x.x      | ^3.x.x  | No longer maintained.
+8.x.x      | ^4.x.x  | PHP ^8.0 Supported from 4.0.3, Bug fixes only.
+9.x.x      | ^5.x.x  |
+10.x.x     | ^6.x.x  |
 
 ## Rules
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use Illuminate\Support\Facades\Validator;
 use PacerIT\LaravelPolishValidationRules\Rules\PostCodeRule;
@@ -10,7 +10,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\PostCodeRule;
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
  */
-class PostCodeRuleTest extends AbstractRuleTest
+class PostCodeRuleTest extends AbstractRuleTestCase
 {
     /**
      * Set up test.

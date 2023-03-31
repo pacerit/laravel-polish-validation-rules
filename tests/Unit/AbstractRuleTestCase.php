@@ -1,17 +1,17 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use Illuminate\Contracts\Validation\Rule;
 use Orchestra\Testbench\TestCase;
 use PacerIT\LaravelPolishValidationRules\Providers\LaravelPolishValidationRulesServiceProvider;
 
 /**
- * Class AbstractRuleTest.
+ * Class AbstractRuleTestCase.
  *
  * @author Wiktor Pacer <kontakt@pacerit.pl>
  */
-abstract class AbstractRuleTest extends TestCase
+abstract class AbstractRuleTestCase extends TestCase
 {
     /**
      * @var Rule

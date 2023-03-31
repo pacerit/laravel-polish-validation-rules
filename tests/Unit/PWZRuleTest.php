@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use PacerIT\LaravelPolishValidationRules\Rules\PWZRule;
 
@@ -11,7 +11,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\PWZRule;
  *
  * @since 2019-08-12
  */
-class PWZRuleTest extends AbstractRuleTest
+class PWZRuleTest extends AbstractRuleTestCase
 {
     /**
      * Set up test.

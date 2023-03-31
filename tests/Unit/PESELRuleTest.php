@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use Illuminate\Support\Facades\Validator;
 use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
@@ -12,7 +12,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\PESELRule;
  *
  * @since 2019-08-12
  */
-class PESELRuleTest extends AbstractRuleTest
+class PESELRuleTest extends AbstractRuleTestCase
 {
     /**
      * Set up test.
