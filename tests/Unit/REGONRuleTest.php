@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use PacerIT\LaravelPolishValidationRules\Rules\REGONRule;
 
@@ -11,7 +11,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\REGONRule;
  *
  * @since 2019-08-12
  */
-class REGONRuleTest extends AbstractRuleTest
+class REGONRuleTest extends AbstractRuleTestCase
 {
     /**
      * Set up test.

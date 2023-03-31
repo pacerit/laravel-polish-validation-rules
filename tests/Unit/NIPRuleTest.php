@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use PacerIT\LaravelPolishValidationRules\Rules\NIPRule;
 
@@ -11,7 +11,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\NIPRule;
  *
  * @since 2019-08-12
  */
-class NIPRuleTest extends AbstractRuleTest
+class NIPRuleTest extends AbstractRuleTestCase
 {
     /**
      * Set up test.

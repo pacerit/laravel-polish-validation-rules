@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace PacerIT\LaravelPolishValidationRules\Tests\Unit;
 
 use PacerIT\LaravelPolishValidationRules\Rules\IDCardNumberRule;
 
@@ -11,7 +11,7 @@ use PacerIT\LaravelPolishValidationRules\Rules\IDCardNumberRule;
  *
  * @since 2019-08-12
  */
-class IDCardNUmberTest extends AbstractRuleTest
+class IDCardNUmberTest extends AbstractRuleTestCase
 {
     /**
      * Set up test.
