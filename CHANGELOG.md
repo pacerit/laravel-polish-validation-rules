@@ -1,4 +1,6 @@
 # Changelog
+## v.6.0.0
+    - update dependencies for Laravel and Lumen 8.x.x compatibility (thanks krzysztofrewak!)
 ## v.5.1.0
 **Possible breaking changes while updating from previous version. See upgrade guide [here](UPGRADE_GUIDE.md)**
 
