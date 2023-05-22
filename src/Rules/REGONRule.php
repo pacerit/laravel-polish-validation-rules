@@ -23,11 +23,19 @@ class REGONRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $this->checkREGON($value);
+        if ($value === null) {
+            return false;
+        }
+
+        return match (strlen($value)) {
+            9       => $this->checkREGON($value),
+            14      => $this->checkLongREGON($value),
+            default => false,
+        };
     }
 
     /**
-     * Check if given REGON number is valid.
+     * Check if given REGON number is valid - 9 digit version.
      *
      * @param null|string $string
      *
@@ -38,14 +46,6 @@ class REGONRule implements Rule
      */
     private function checkREGON(?string $string): bool
     {
-        if ($string === null) {
-            return false;
-        }
-
-        if (strlen($string) != 9) {
-            return false;
-        }
-
         $arrSteps = [8, 9, 2, 3, 4, 5, 6, 7];
         $intSum = 0;
 
@@ -57,6 +57,35 @@ class REGONRule implements Rule
         $intControlNr = ($int == 10) ? 0 : $int;
 
         if ($intControlNr == $string[8]) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Check if given REGON number is valid - 14 digits version.
+     *
+     * @param null|string $string
+     *
+     * @return bool
+     *
+     * @see http://phpedia.pl/wiki/REGON Souce of this algorithm
+     * @since 2023-05-22
+     */
+    private function checkLongRegon(?string $string): bool
+    {
+        $arrSteps = [2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8];
+        $intSum = 0;
+
+        for ($i = 0; $i < 13; $i++) {
+            $intSum += $arrSteps[$i] * $string[$i];
+        }
+
+        $int = $intSum % 11;
+        $intControlNr = ($int == 10) ? 0 : $int;
+
+        if ($intControlNr == $string[13]) {
             return true;
         }
 
