@@ -4,7 +4,7 @@
 ![Packagist](https://img.shields.io/packagist/dt/pacerit/laravel-polish-validation-rules?label=Downloads)
 ![PHP from Packagist](https://img.shields.io/packagist/php-v/pacerit/laravel-polish-validation-rules?label=PHP)
 [![StyleCI](https://github.styleci.io/repos/201912664/shield?branch=master)](https://github.styleci.io/repos/201912664)
-[![Build Status](https://travis-ci.com/pacerit/laravel-polish-validation-rules.svg?branch=master)](https://travis-ci.com/pacerit/laravel-polish-validation-rules)
+[![<PacerIT>](https://circleci.com/gh/pacerit/laravel-polish-validation-rules.svg?style=svg)](https://circleci.com/gh/pacerit/laravel-polish-validation-rules)
 
 Simple Polish Validation rules for Laravel and Lumen framework
 
@@ -24,9 +24,10 @@ Framework | Package | Note
 5.8.x      | ^1.x.x  | No longer maintained.
 6.0.x      | ^2.x.x  | No longer maintained.
 7.x.x      | ^3.x.x  | No longer maintained.
-8.x.x      | ^4.x.x  | PHP ^8.0 Supported from 4.0.3, Bug fixes only.
+8.x.x      | ^4.x.x  | PHP ^8.0 Supported from 4.0.3, Bug fixes only. No longer maintained.
 9.x.x      | ^5.x.x  |
 10.x.x     | ^6.x.x  |
+11.x.x     | ^7.x.x  |
 
 ## Rules
 
