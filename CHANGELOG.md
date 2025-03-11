@@ -1,4 +1,6 @@
 # Changelog
+## v.8.0.0
+    - update dependencies, to work with Laravel version 12.x
 ## v.7.0.0
     - update dependencies, to work with Laravel version 11.x
     - update README.md file
