@@ -1,4 +1,10 @@
 # Changelog
+## v.8.0.0
+    - update dependencies, to work with Laravel version 12.x
+## v.7.0.0
+    - update dependencies, to work with Laravel version 11.x
+    - update README.md file
+    - migrate from TravisCI to CircleCI
 ## v.6.0.0
     - update dependencies for Laravel 10.x.x compatibility (thanks krzysztofrewak!)
 ## v.5.1.0
