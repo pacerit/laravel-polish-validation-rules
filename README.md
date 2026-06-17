@@ -25,10 +25,11 @@ Framework | Package | Note
 6.0.x      | ^2.x.x  | No longer maintained.
 7.x.x      | ^3.x.x  | No longer maintained.
 8.x.x      | ^4.x.x  | PHP ^8.0 Supported from 4.0.3, Bug fixes only. No longer maintained.
-9.x.x      | ^5.x.x  |
-10.x.x     | ^6.x.x  |
-11.x.x     | ^7.x.x  |
+9.x.x      | ^5.x.x  | No longer maintained.
+10.x.x     | ^6.x.x  | No longer maintained.
+11.x.x     | ^7.x.x  | No longer maintained.
 12.x.x     | ^8.x.x  |
+13.x.x     | ^9.x.x  |
 
 ## Rules
 
