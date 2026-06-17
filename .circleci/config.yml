@@ -1,32 +1,21 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:php:.
 version: 2.1
+
 orbs:
-  php: circleci/php@1
+  php: circleci/php@2.0.0
+
 jobs:
-  test-php:
-    # Install php packages and run tests
+  test:
     docker:
-      - image: cimg/php:8.2-node
+      - image: cimg/php:8.3
     steps:
       - checkout
-      - php/install-packages
+      - php/install_packages:
+          cache_key: composer.json
       - run:
-          name: run tests
-          command: ./vendor/bin/phpunit
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
+          name: Run tests
+          command: vendor/bin/phpunit
+
 workflows:
-  build-and-test:
+  test:
     jobs:
-      - test-php
-    # - deploy:
-    #     requires:
-    #       - test-php
+      - test

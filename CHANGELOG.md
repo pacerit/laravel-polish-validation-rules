@@ -1,4 +1,6 @@
 # Changelog
+## v.9.0.0
+    - update dependencies, to work with Laravel version 13.x
 ## v.8.0.0
     - update dependencies, to work with Laravel version 12.x
 ## v.7.0.0
